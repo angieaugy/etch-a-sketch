@@ -1,26 +1,44 @@
-const container = document.querySelector('.container')
-const gridValue = 64
+// Slider variable to control grid size
+const slider = document.querySelector('.slider');
+const sliderValue = document.querySelector('.slideContainer > p')
 
-for (let i = 0; i < gridValue; i++) {
+sliderValue.textContent = slider.value
+slider.oninput = sliderEvents
 
-    const row = document.createElement("div")
-    row.classList.add('row')
+// Grid Creation
+function createGrid() {
 
-    container.append(row);
+    let gridSize = slider.value
 
-    for (let i = 0; i < gridValue; i++) {
+    const container = document.querySelector('.container')
+    container.textContent = ''
 
-        const column = document.createElement("div")
-        column.classList.add('column')
+    for (let i = 0; i < gridSize; i++) {
 
-        row.append(column);
+        const row = document.createElement("div")
+        row.classList.add('row')
+
+        container.append(row);
+
+        for (let i = 0; i < gridSize; i++) {
+
+            const column = document.createElement("div")
+            column.classList.add('column')
+
+            row.append(column);
+        }
+
     }
 
 }
 
-const slider = document.querySelector('.slider');
-const sliderDisplay = document.querySelector('.slideContainer > p')
+function sliderEvents() {
 
-sliderDisplay.textContent = slider.value
+    createGrid();
+    sliderValue.textContent = slider.value
+}
 
-slider.oninput = () => sliderDisplay.textContent = slider.value
+createGrid()
+
+
+
