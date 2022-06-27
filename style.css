@@ -9,25 +9,21 @@
     height: 750px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
     background-color: #898989;
     border:solid 5px black;
 }
 
 .row {
-    margin: auto;
     width: 100%;
     height: 100%;
     display: flex;
-    gap: 2px;
+    gap: 1px;
     
 }
 
 .column {
-    margin-top: -1px;
-    margin-left: -1px;
     width:100%;
     height: 100%;
     background-color: rgb(255, 219, 253);
-
 }

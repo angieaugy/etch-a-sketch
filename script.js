@@ -1,5 +1,5 @@
 const container = document.querySelector('.container')
-const gridValue = 32
+const gridValue = 64
 
 for (let i = 0; i < gridValue; i++) {
 
@@ -17,3 +17,10 @@ for (let i = 0; i < gridValue; i++) {
     }
 
 }
+
+const slider = document.querySelector('.slider');
+const sliderDisplay = document.querySelector('.slideContainer > p')
+
+sliderDisplay.textContent = slider.value
+
+slider.oninput = () => sliderDisplay.textContent = slider.value
