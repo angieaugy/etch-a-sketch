@@ -1,3 +1,32 @@
+// Pen Logic
+const penStates = ['eraser', 'red', 'rainbow']
+let penState = penStates[1] // red pen state
+
+function switchPenState() {
+
+    switch (this.value) {
+
+        case 'eraser':
+
+            penState = penStates[0]
+
+            break;
+        
+        case 'red':
+
+            penState = penStates[1]
+
+            break;
+
+        case 'rainbow':
+            
+            penState = penStates[2]
+
+            break;
+
+    }
+}
+
 // Slider variable to control grid size
 const slider = document.querySelector('.slider');
 const sliderValue = document.querySelector('.slideContainer > p')
@@ -12,6 +41,7 @@ function createGrid() {
     let gridSize = slider.value
 
     const container = document.querySelector('.container')
+    
     container.textContent = ''
 
     for (let i = 0; i < gridSize; i++) {
@@ -30,10 +60,11 @@ function createGrid() {
 
             column.addEventListener("mouseover", function(e) {
 
+                // If left mouse button is pressed
                 if(e.buttons == 1) {
 
                     let cell = this
-                    
+
                     changeCellColor(cell)
 
                 }
@@ -53,9 +84,24 @@ function sliderEvents() {
 
 function changeCellColor(cell) {
 
-    cell.style.cssText = "background-color: red"
+    if(penState == penStates[0]) {
+
+        cell.style.cssText = "background-color: #ffdbfd;"
+
+    } else {
+
+        cell.style.cssText = "background-color: red"
+
+    }
     
 }
+
+// Button event listeners
+const clearButton = document.getElementById('clear')
+clearButton.addEventListener("click", createGrid)
+
+const eraserButton = document.querySelector('.pen')
+eraserButton.addEventListener("click", switchPenState)
 
 createGrid()
 
