@@ -1,6 +1,6 @@
 // Pen Logic
-const penStates = ['eraser', 'red', 'rainbow']
-let penState = penStates[1] // red pen state
+const penStates = ['eraser', 'red', 'rainbow',]
+let penState = penStates[1] // default to red
 
 function switchPenState() {
 
@@ -25,6 +25,8 @@ function switchPenState() {
             break;
 
     }
+
+    console.log(penState)
 }
 
 // Slider variable to control grid size
@@ -34,6 +36,14 @@ const sliderValue = document.querySelector('.slideContainer > p')
 sliderValue.textContent = slider.value
 
 slider.oninput = sliderEvents
+
+// Events to trigger when slider is used
+function sliderEvents() {
+
+    createGrid();
+    sliderValue.textContent = slider.value
+    
+}
 
 // Grid creation
 function createGrid() {
@@ -75,20 +85,18 @@ function createGrid() {
 
 }
 
-// Events to trigger when slider is used
-function sliderEvents() {
-
-    createGrid();
-    sliderValue.textContent = slider.value
-}
-
 function changeCellColor(cell) {
 
-    if(penState == penStates[0]) {
+    if(penState == penStates[0]) { // eraser
 
         cell.style.cssText = "background-color: #ffdbfd;"
 
-    } else {
+    } else if(penState == penStates[2]) { // rainbow
+
+        let rainbow = Math.floor(Math.random() * 360)
+        cell.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
+
+    } else { // default to red
 
         cell.style.cssText = "background-color: red"
 
@@ -100,8 +108,11 @@ function changeCellColor(cell) {
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener("click", createGrid)
 
-const eraserButton = document.querySelector('.pen')
-eraserButton.addEventListener("click", switchPenState)
+// note that .getElementByClassName does not return an Array, Map or Set
+const penButton = document.getElementsByClassName('pen')
+
+// so we use Array.from to convert it to an array before calling forEach
+Array.from(penButton).forEach(button => button.addEventListener('click', switchPenState))
 
 createGrid()
 
