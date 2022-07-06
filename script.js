@@ -8,8 +8,8 @@ function switchPenState() {
 }
 
 // Slider variable to control grid size
-const slider = document.querySelector('.slider');
-const sliderValue = document.querySelector('.slider-container > p')
+const slider = document.querySelector('#slider');
+const sliderValue = document.querySelector('#slider-container > p')
 
 sliderValue.textContent = `${slider.value} x ${slider.value}`
 
@@ -28,7 +28,7 @@ function createGrid() {
 
     let gridSize = slider.value
 
-    const container = document.querySelector('.grid-container')
+    const container = document.querySelector('#grid-container')
     
     container.textContent = ''
 

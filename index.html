@@ -4,23 +4,45 @@
     <meta charset="UTF-8">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    </style>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="grid-container">
+
+    <div id="container">
+      <h1>Etch-a-Sketch</h1>
+      <div id="content">
+        <div id="sidebar">
+          <div class="sidebar-column">
+            <button class="pen" value="eraser">Eraser</button>
+            <button class="pen" value="green">Green</button>
+            <button class="pen" value="rainbow">Rainbow</button>
+            <button class="pen" value="white">White</button>
+          </div>
+          <div class="sidebar-column">
+            <button class="pen" value="red">Red</button>          
+            <button class="pen" value="blue">Blue</button>            
+            <button class="pen" value="black">Black</button>            
+            <button id="clear" value="clear">Clear</button>
+          </div> 
+        </div>
+        <div id="canvas">
+          <div id="grid-container"></div>
+          <div id="slider-container">
+            <input type="range" min="16" max="64" value="32" step="16" id="slider">
+            <p></p>
+
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="slider-container">
-      <input type="range" min="16" max="64" value="32" step="16" class="slider">
-      <p></p>
-      <button class="pen" value="eraser">Eraser</button>
-      <button class="pen" value="red">Red</button>
-      <button class="pen" value="green">Green</button>
-      <button class="pen" value="blue">Blue</button>
-      <button class="pen" value="rainbow">Rainbow</button>
-      <button class="pen" value="black">Black</button>
-      <button class="pen" value="white">White</button>
-      <button id="clear" value="clear">Clear</button>
-    </div>
+      
+    <div id="footer">Created by angieaugy</div>
+
+
+
   </body>
 </html>
 
