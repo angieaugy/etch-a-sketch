@@ -1,39 +1,17 @@
 // Pen Logic
-const penStates = ['eraser', 'red', 'rainbow',]
-let penState = penStates[1] // default to red
+let penState = 'red' // default to red
 
 function switchPenState() {
 
-    switch (this.value) {
+  penState = this.value
 
-        case 'eraser':
-
-            penState = penStates[0]
-
-            break;
-        
-        case 'red':
-
-            penState = penStates[1]
-
-            break;
-
-        case 'rainbow':
-            
-            penState = penStates[2]
-
-            break;
-
-    }
-
-    console.log(penState)
 }
 
 // Slider variable to control grid size
 const slider = document.querySelector('.slider');
-const sliderValue = document.querySelector('.slideContainer > p')
+const sliderValue = document.querySelector('.slider-container > p')
 
-sliderValue.textContent = slider.value
+sliderValue.textContent = `${slider.value} x ${slider.value}`
 
 slider.oninput = sliderEvents
 
@@ -41,7 +19,7 @@ slider.oninput = sliderEvents
 function sliderEvents() {
 
     createGrid();
-    sliderValue.textContent = slider.value
+    sliderValue.textContent = `${slider.value} x ${slider.value}`
     
 }
 
@@ -50,7 +28,7 @@ function createGrid() {
 
     let gridSize = slider.value
 
-    const container = document.querySelector('.container')
+    const container = document.querySelector('.grid-container')
     
     container.textContent = ''
 
@@ -87,28 +65,62 @@ function createGrid() {
 
 function changeCellColor(cell) {
 
-    if(penState == penStates[0]) { // eraser
+    cell.removeAttribute('style') // reset cell inline styles
+    cell.setAttribute('class', 'column') // reset cell classes
 
-        cell.style.cssText = "background-color: #ffdbfd;"
+    switch(penState) {
 
-    } else if(penState == penStates[2]) { // rainbow
+        case 'eraser':
 
-        let rainbow = Math.floor(Math.random() * 360)
-        cell.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
+            cell.classList.add('eraser')
+            break;
 
-    } else { // default to red
+        case 'red':
 
-        cell.style.cssText = "background-color: red"
+            cell.classList.add('red')
+            break;
 
+        case 'green':
+
+            cell.classList.add('green')
+            break;
+        
+        case 'blue':
+
+            cell.classList.add('blue')
+            break;
+
+        case 'green':
+
+            cell.classList.add('green')
+            break;
+
+        case 'rainbow':
+
+            let rainbow = Math.floor(Math.random() * 360)
+
+            cell.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
+
+            break;
+
+        case 'black':
+
+            cell.classList.add('black')
+            break;
+
+        case 'white':
+
+            cell.classList.add('white')
+            break;
     }
-    
+
 }
 
 // Button event listeners
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener("click", createGrid)
 
-// note that .getElementByClassName does not return an Array, Map or Set
+// getElementsByClassName does not return an Array, Map or Set (forEach won't work)
 const penButton = document.getElementsByClassName('pen')
 
 // so we use Array.from to convert it to an array before calling forEach

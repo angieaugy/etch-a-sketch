@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.container {
+.grid-container {
     margin: 50px auto;
     width: 750px;
     height: 750px;
@@ -11,7 +11,7 @@
     flex-direction: column;
     gap: 1px;
     background-color: #898989;
-    border:solid 5px black;
+    border:solid 5px black
 }
 
 .row {
@@ -26,4 +26,28 @@
     width:100%;
     height: 100%;
     background-color: #ffdbfd;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}
+
+.eraser {
+    background-color: #ffdbfd;;
 }
