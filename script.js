@@ -68,50 +68,16 @@ function changeCellColor(cell) {
     cell.removeAttribute('style') // reset cell inline styles
     cell.setAttribute('class', 'column') // reset cell classes
 
-    switch(penState) {
+    if (penState == 'rainbow') {
 
-        case 'eraser':
+        let rainbow = Math.floor(Math.random() * 360)
 
-            cell.classList.add('eraser')
-            break;
+        cell.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
 
-        case 'red':
+    } else {
 
-            cell.classList.add('red')
-            break;
-
-        case 'green':
-
-            cell.classList.add('green')
-            break;
+        cell.classList.add(penState)
         
-        case 'blue':
-
-            cell.classList.add('blue')
-            break;
-
-        case 'green':
-
-            cell.classList.add('green')
-            break;
-
-        case 'rainbow':
-
-            let rainbow = Math.floor(Math.random() * 360)
-
-            cell.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
-
-            break;
-
-        case 'black':
-
-            cell.classList.add('black')
-            break;
-
-        case 'white':
-
-            cell.classList.add('white')
-            break;
     }
 
 }
