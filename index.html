@@ -15,34 +15,39 @@
       <h1>Etch-a-Sketch</h1>
       <div id="content">
         <div id="sidebar">
-          <div class="sidebar-column">
-            <button class="pen" value="eraser">Eraser</button>
-            <button class="pen" value="green">Green</button>
-            <button class="pen" value="rainbow">Rainbow</button>
-            <button class="pen" value="white">White</button>
-          </div>
-          <div class="sidebar-column">
-            <button class="pen" value="red">Red</button>          
-            <button class="pen" value="blue">Blue</button>            
-            <button class="pen" value="black">Black</button>            
-            <button id="clear" value="clear">Clear</button>
-          </div> 
-        </div>
-        <div id="canvas">
-          <div id="grid-container"></div>
+          <div id="button-wrapper">
+            <div class="sidebar-column">
+              <button class="pen" value="eraser">Eraser</button>
+              <button class="pen green" value="green"></button>
+              <button class="pen rainbow" value="rainbow"></button>
+              <button class="pen white" value="white"></button>
+            </div>
+            <div class="sidebar-column">
+              <button class="pen red" value="red"></button>          
+              <button class="pen blue" value="blue"></button>            
+              <button class="pen black" value="black"></button>            
+              <button id="clear" value="clear">Clear</button>
+            </div> 
+          </div>          
           <div id="slider-container">
             <input type="range" min="16" max="64" value="32" step="16" id="slider">
             <p></p>
 
           </div>
         </div>
+        <div>
+          <div id="grid-container"></div>
+        </div>
       </div>
     </div>
       
     <div id="footer">Created by angieaugy</div>
-
-
-
   </body>
 </html>
 
+
+
+<!--
+  <a href="https://www.flaticon.com/free-icons/eraser" title="eraser icons">Eraser icons created by Iconjam - Flaticon</a>
+  <a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by inkubators - Flaticon</a>
+-->
