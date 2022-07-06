@@ -1,3 +1,22 @@
+// Button event listeners
+const clearButton = document.getElementById('clear')
+clearButton.addEventListener("click", createGrid)
+
+// getElementsByClassName does not return an Array, Map or Set (forEach won't work)
+const penButton = document.getElementsByClassName('pen')
+
+// so we use Array.from to convert it to an array before calling forEach
+Array.from(penButton).forEach(button => button.addEventListener('click', switchPenState))
+Array.from(penButton).forEach(button => button.addEventListener('click', toggleButtonState))
+
+function toggleButtonState() {
+
+    Array.from(penButton).forEach(button => button.classList.remove('active'))
+
+    this.classList.add('active')
+
+}
+
 // Pen Logic
 let penState = 'red' // default to red
 
@@ -77,20 +96,11 @@ function changeCellColor(cell) {
     } else {
 
         cell.classList.add(penState)
-        
+
     }
 
 }
 
-// Button event listeners
-const clearButton = document.getElementById('clear')
-clearButton.addEventListener("click", createGrid)
-
-// getElementsByClassName does not return an Array, Map or Set (forEach won't work)
-const penButton = document.getElementsByClassName('pen')
-
-// so we use Array.from to convert it to an array before calling forEach
-Array.from(penButton).forEach(button => button.addEventListener('click', switchPenState))
 
 createGrid()
 

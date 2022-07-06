@@ -15,24 +15,24 @@
       <h1>Etch-a-Sketch</h1>
       <div id="content">
         <div id="sidebar">
-          <div id="button-wrapper">
+           <div id="button-wrapper">
             <div class="sidebar-column">
-              <button class="pen" value="eraser">Eraser</button>
-              <button class="pen green" value="green"></button>
               <button class="pen rainbow" value="rainbow"></button>
+              <button class="pen green" value="green"></button>              
               <button class="pen white" value="white"></button>
+              <button class="pen" value="eraser"><img src="images/eraser.png" draggable="false"></button>
+              
             </div>
             <div class="sidebar-column">
               <button class="pen red" value="red"></button>          
               <button class="pen blue" value="blue"></button>            
               <button class="pen black" value="black"></button>            
-              <button id="clear" value="clear">Clear</button>
+              <button id="clear" value="clear"><img src="images/reset.png" draggable="false"></button>
             </div> 
           </div>          
           <div id="slider-container">
             <input type="range" min="16" max="64" value="32" step="16" id="slider">
             <p></p>
-
           </div>
         </div>
         <div>
