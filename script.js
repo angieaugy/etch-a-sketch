@@ -22,7 +22,11 @@ let penState = 'red' // default to red
 
 function switchPenState() {
 
-  penState = this.value
+    if(this.value !== 'clear') {
+
+        penState = this.value
+
+    } 
 
 }
 
