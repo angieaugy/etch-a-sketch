@@ -8,7 +8,7 @@ A browser based Etch-a-Sketch built with Javascript, HTML and CSS. Draw with you
 
 ## Challenges
 
-> Issues with Mouse when Drawing
+**Issues with Mouse when Drawing**
 
 When the drawing logic was created, it worked well enough, but occasionally it would stop coloring the grids. The cursor would change to a not-allowed symbol and it took me a long time to figure out what was triggering it. 
 
@@ -16,11 +16,11 @@ After some digging around, I guessed it was most likely caused by a click and dr
 
 It was only after I found mention of the `user-select` property (where it controls whether a user can select text) in CSS that I was able to fix this issue.
 
-> Retrieving Information that is Passed in `AddEventListener`
+**Retrieving Information that is Passed in `AddEventListener`**
 
 I am still struggling with this. Depending on how the function is written in the listener parameter, it affects whether I have access to `this`. If I can't access it, then I struggle with trying to retrieve the information I need. Can I add multiple functions to one event listener, or should I use multiple event listeners for one element? I'm unsure of when to use one or the other. My event listeners work now, but it was more through a process of trial and error, than truly understanding how values are being passed down for each situation.
 
-> Writing Redundant Code
+**Writing Redundant Code**
 
 There a were a few times I caught myself pulling values from HTML elements and rewriting them when assigning them to variables in Javascript. For one instance, I had created a really long `switch` statement when reassigning values to `penstate` in `switchPenState()`. After a review, I realised I should take advantage of `this.value`. 
 
