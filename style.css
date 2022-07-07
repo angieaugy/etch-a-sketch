@@ -19,6 +19,8 @@ body {
       );
     color: #fbfbfb
 }
+
+
 img {
     width:45px;
     height: 45px;
@@ -30,7 +32,8 @@ h1 {
     text-align: center;
     font-family: 'Pacifico', sans-serif;
     font-weight: normal;
-    font-size: 40px;
+    font-size: 55px;
+    line-height: 1.15;
     color: white;
     text-shadow: #422800 3px 3px;
 }
@@ -41,15 +44,18 @@ h1 {
     align-self: center;
     width: 925px;
     margin-top: 30px;
-    padding: 10px 30px 35px 30px;
+    padding: 35px 35px 35px 10px;
     border: solid 5px #401d2e;
     border-radius: 25px;
     background-color: #9e4770;
+    
 }
 
 #sidebar {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     margin-right: 20px;
 }
 
@@ -62,26 +68,20 @@ h1 {
     box-shadow: rgb(66, 40, 0, 0.8) 6px 4px 0 0;
 }
 
-#sidebar button:hover {
+#sidebar .active {
+    border-color: #fff;
+    box-shadow: rgb(66, 40, 0) 2px 2px 0 0;
+    transform: translate(5px, 3px);
+}
+
+/* Apply hover to effect to all buttons except those with .active*/
+#sidebar button:not(.active):hover {
     cursor: pointer;
     box-shadow: rgb(66, 40, 0) 6px 4px 0 0; 
 }
 
-#sidebar button:active {
-    border-color: #fff;
-    box-shadow: #fff 1px 1px 0 0;
-    transform: translate(5px, 3px);
-}
-
-#sidebar .active {
-    border-color: #fff;
-    box-shadow: #fff 1px 1px 0 0;
-    transform: translate(5px, 3px);
-}
-
 #button-wrapper {
     display: flex;
-    margin-top: 75px;
 }
 
 #button-wrapper > div:last-child {
@@ -99,8 +99,8 @@ h1 {
 }
 
 #grid-container {
-    width: 700px;
-    height: 700px;
+    width: 650px;
+    height: 650px;
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -110,14 +110,14 @@ h1 {
 }
 
 #slider-container {
-    margin-top: 20px;
     font-weight: bold;
 }
 
 #slider {
     margin-bottom: 13px;
     -webkit-appearance: none;
-    width: 90%;
+    width: 100%;
+    height: 13px;
     border-radius: 7px;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -131,16 +131,28 @@ h1 {
 
 #slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
     background-color: white;
+    box-shadow: rgb(66, 40, 0) 1px 1px 3px 0;
 }
 
 #footer {
     padding: 20px;
     background-color: #2e2532;
     border-top: solid 2px #201a23;
+    color:#90729d
+}
+
+#footer a {
+    font-weight: bold;
+    text-decoration: none;
+    color:#90729d
+}
+
+#footer a:hover {
+    color:#fff;
 }
 
 .row {
@@ -183,5 +195,5 @@ h1 {
 
 .rainbow {
     background: rgb(255,0,0);
-    background: linear-gradient(45deg, #ff5555 0 30%, #fffa72 30% 50%, #60e660 50% 70%, #4e4ec6 70% 90%);
+    background: linear-gradient(135deg, #ff5555 0 30%, #fffa72 30% 50%, #60e660 50% 70%, #4e4ec6 70% 90%);
 }
