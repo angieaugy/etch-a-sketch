@@ -1,21 +1,28 @@
 // Button event listeners
 const clearButton = document.getElementById('clear')
-clearButton.addEventListener("click", createGrid)
+clearButton.addEventListener("click", resetGrid)
 
 // getElementsByClassName does not return an Array, Map or Set (forEach won't work)
+// so we convert it with Array.from
 const penButton = document.getElementsByClassName('pen')
+const buttons = Array.from(penButton)
 
-// so we use Array.from to convert it to an array before calling forEach
-Array.from(penButton).forEach(button => button.addEventListener('click', switchPenState))
-Array.from(penButton).forEach(button => button.addEventListener('click', toggleButtonState))
+buttons.forEach(button => button.addEventListener('click', switchPenState))
+buttons.forEach(button => button.addEventListener('click', toggleButtonState))
 
 function toggleButtonState() {
 
-    Array.from(penButton).forEach(button => button.classList.remove('active'))
+    buttons.forEach(button => button.classList.remove('active'))
 
     this.classList.add('active')
 
 }
+
+// Mouse down state
+let mouseDown = false
+
+document.body.onmousedown = () => {mouseDown = true}
+document.body.onmouseup = () => {mouseDown = false}
 
 // Pen Logic
 let penState = 'red' // default to red
@@ -64,42 +71,49 @@ function createGrid() {
 
         for (let i = 0; i < gridSize; i++) {
 
-            const column = document.createElement("div")
-            column.classList.add('column')
+            const cell = document.createElement("div")
+            cell.classList.add('cell')
 
-            row.append(column);
+            row.append(cell);
 
-            column.addEventListener("mouseover", function(e) {
-
-                // If left mouse button is pressed
-                if(e.buttons == 1) {
-
-                    let cell = this
-
-                    changeCellColor(cell)
-
-                }
-            })
+            cell.addEventListener('mousedown',changeCellColor)
+            cell.addEventListener("mouseover",changeCellColor)
         }
 
     }
 
 }
 
-function changeCellColor(cell) {
+function resetGrid() {
 
-    cell.removeAttribute('style') // reset cell inline styles
-    cell.setAttribute('class', 'column') // reset cell classes
+    const allCells = document.getElementsByClassName('cell')
+    const cells = Array.from(allCells)
+
+    cells.forEach(cell => clearClassStyle(cell))
+
+}
+
+function clearClassStyle(cell)  {
+
+    cell.removeAttribute('style')
+    cell.setAttribute('class', 'cell')
+}
+
+function changeCellColor(e) {
+
+    if (e.type == 'mouseover' && !mouseDown) return;
+
+    clearClassStyle(e.target) // clear styles
 
     if (penState == 'rainbow') {
 
         let rainbow = Math.floor(Math.random() * 360)
 
-        cell.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
+        e.target.style.cssText = `background-color: hsl(${rainbow}, 100%, 50%);`
 
     } else {
 
-        cell.classList.add(penState)
+        e.target.classList.add(penState)
 
     }
 
