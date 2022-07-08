@@ -73,7 +73,7 @@ h1 {
 }
 
 #sidebar .active {
-    border-color: #eaeaea;
+    border-color: #a8ffa9;
     box-shadow: rgb(66, 40, 0) 2px 2px 0 0;
     transform: translate(5px, 3px);
 }
@@ -85,7 +85,7 @@ h1 {
 }
 
 #clear:active {
-    border-color: #eaeaea;
+    border-color: #a8ffa9;
     box-shadow: rgb(66, 40, 0) 2px 2px 0 0;
     transform: translate(5px, 3px);
 }
