@@ -73,7 +73,7 @@ h1 {
 }
 
 #sidebar .active {
-    border-color: #fff;
+    border-color: #eaeaea;
     box-shadow: rgb(66, 40, 0) 2px 2px 0 0;
     transform: translate(5px, 3px);
 }
@@ -85,7 +85,7 @@ h1 {
 }
 
 #clear:active {
-    border-color: #fff;
+    border-color: #eaeaea;
     box-shadow: rgb(66, 40, 0) 2px 2px 0 0;
     transform: translate(5px, 3px);
 }
@@ -137,6 +137,7 @@ h1 {
 
 #slider:hover {
     opacity: 1;
+    cursor: pointer;
 }
 
 #slider::-webkit-slider-thumb {
@@ -193,11 +194,11 @@ h1 {
 }
 
 .black {
-    background-color: rgb(43, 43, 43);
+    background-color: #2b2b2b;
 }
 
 .white {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .eraser {
